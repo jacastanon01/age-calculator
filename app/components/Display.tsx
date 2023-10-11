@@ -1,7 +1,13 @@
 import React from "react";
 import Image from "next/image";
+import { DatePropTypes } from "./Form";
 
-const Display = () => {
+type DisplayPropTypes = {
+  date: DatePropTypes;
+};
+
+const Display = ({ date }: DisplayPropTypes) => {
+  const { year, month, day } = date;
   return (
     <>
       <hr className="border-b-slate-400 my-4" />
@@ -15,15 +21,15 @@ const Display = () => {
       </button>
       <div className="mt-6 flex flex-col gap-2 p-2">
         <div className="text-5xl font-bold flex gap-2">
-          <span className="text-primary">- -</span>
+          <span className="text-primary">{year ? year : "- -"}</span>
           years
         </div>
         <div className="text-5xl font-bold flex gap-2">
-          <span className="text-primary">- -</span>
+          <span className="text-primary">{month ? month : "- -"}</span>
           months
         </div>
         <div className="text-5xl font-bold flex gap-2">
-          <span className="text-primary">- -</span>
+          <span className="text-primary">{day ? day : "- -"}</span>
           days
         </div>
       </div>
